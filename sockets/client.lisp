@@ -2,15 +2,13 @@
 
 (defparameter *port* 54321)
 
-(let ((socket (usocket:socket-connect "localhost" *port*)))
-  (let ((stream (usocket:socket-stream socket)))
-
+(defun run-client (port)
+  (usocket:with-client-socket (socket stream "localhost" port)
     ;; Send a message to the server
-    (format stream "Hello from the client!~%")
+    (format stream "Hello from the client!")
     (finish-output stream)
 
     ;; Receive a message to the server
-    (format t "Data received: ~a~%" (read-line stream))
+    (format t "Data received: ~a~%" (read-line stream))))
 
-    ;; Close socket
-    (usocket:socket-close socket)))
+(run-client *port*)
