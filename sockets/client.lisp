@@ -3,8 +3,11 @@
 (defparameter *port* 54321)
 
 (let ((socket (usocket:socket-connect "localhost" *port*)))
-  (format t "Client connected to server... (socket: ~a)~%" socket)
   (let ((stream (usocket:socket-stream socket)))
+
+    ;; Send a message to the server
+    (format stream "Hello from the client!~%")
+    (finish-output stream)
 
     ;; Receive a message to the server
     (format t "Message received from server: ~a~%" (read-line stream))
