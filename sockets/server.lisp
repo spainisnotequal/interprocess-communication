@@ -8,10 +8,10 @@
          (stream (usocket:socket-stream connection)))
 
     ;; Receive a message to the client
-    (format t "Message received from client: ~a~%" (read-line stream))
+    (format t "Data received: ~a~%" (read-line stream))
 
     ;; Send a message to the client
-    (format stream "Hello from the server!~%")
+    (format stream "Bye from the server!~%")
     (finish-output stream)
 
     ;; Close both connection and socket

@@ -10,7 +10,7 @@
     (finish-output stream)
 
     ;; Receive a message to the server
-    (format t "Message received from server: ~a~%" (read-line stream))
+    (format t "Data received: ~a~%" (read-line stream))
 
     ;; Close socket
     (usocket:socket-close socket)))
