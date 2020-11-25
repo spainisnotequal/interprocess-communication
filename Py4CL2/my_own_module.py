@@ -1,3 +1,5 @@
+# This file should be located in the $HOME/.local/lib/python3.7/site-packages directory
+
 import platform
 
 
