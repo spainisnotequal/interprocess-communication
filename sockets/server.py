@@ -24,17 +24,18 @@ def run_server(port):
         s.bind(("localhost", port))
         s.listen()
         print("Server listening...")
-        conn, addr = s.accept()
-        with conn:
-            print("Connected by:", addr)
-            data = conn.recv(1024).decode()
-            # convert the string to a number to process de data
-            data = parse_number(data)
-            print("Data received:", data)
-            response = add1(data)
-            # convert the number to a string to send it to the client
-            response = str(response)
-            conn.sendall(response.encode())
+        while True:
+            conn, addr = s.accept()
+            with conn:
+                print("Connected by:", addr)
+                data = conn.recv(1024).decode()
+                # convert the string to a number to process de data
+                data = parse_number(data)
+                print("Data received:", data)
+                response = add1(data)
+                # convert the number to a string to send it to the client
+                response = str(response)
+                conn.sendall(response.encode())
 
 
 run_server(PORT)
