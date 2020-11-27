@@ -7,13 +7,6 @@ def random_integer(n):
     return random.randint(0, n)
 
 
-def parse_number(s):
-    try:
-        return int(s)
-    except ValueError:
-        return float(s)
-
-
 def random_integer_server(listen_address="tcp://*:5555"):
     context = zmq.Context()
     socket = context.socket(zmq.REP)
@@ -22,8 +15,8 @@ def random_integer_server(listen_address="tcp://*:5555"):
     while True:
         #  Wait for next request from client
         message = socket.recv().decode()
-        # convert the string to a number to process de data
-        n = parse_number(message)
+        # convert the string to an integer to process the data
+        n = int(message)
         print("Received number:", n)
 
         # get a random integer
