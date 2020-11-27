@@ -11,7 +11,6 @@
       (dotimes (i 10)
         (let ((upper-limit 100))
           (format t "Sending ~d... " upper-limit)
-          ;;(pzmq:send requester "1")
           (pzmq:send requester (write-to-string upper-limit))
           (write-string "Receiving... ")
           (write-line (pzmq:recv-string requester)))))))

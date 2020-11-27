@@ -10,7 +10,6 @@
 
       (dotimes (i 10)
         (format t "Sending ~d... " i)
-        ;;(pzmq:send requester "1")
         (pzmq:send requester (write-to-string i))
         (write-string "Receiving... ")
         (write-line (pzmq:recv-string requester))))))
