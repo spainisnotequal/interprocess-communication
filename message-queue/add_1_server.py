@@ -20,7 +20,7 @@ def add1_server(listen_address="tcp://*:5555"):
     while True:
         #  Wait for next request from client
         message = socket.recv().decode()
-        # convert the string to a number to process de data
+        # convert the string to a number to process the data
         n = parse_number(message)
         print("Received number:", n)
 
