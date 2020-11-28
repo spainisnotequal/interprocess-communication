@@ -29,4 +29,5 @@ def random_integer_server(listen_address="tcp://*:5555"):
         socket.send(response.encode())
 
 
-random_integer_server()
+if __name__ == "__main__":
+    random_integer_server()

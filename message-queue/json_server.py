@@ -24,4 +24,5 @@ def json_server(listen_address="tcp://*:5555"):
         socket.send(response.encode())
 
 
-json_server()
+if __name__ == "__main__":
+    json_server()

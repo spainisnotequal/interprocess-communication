@@ -34,4 +34,5 @@ def add1_server(listen_address="tcp://*:5555"):
         socket.send(response.encode())
 
 
-add1_server()
+if __name__ == "__main__":
+    add1_server()

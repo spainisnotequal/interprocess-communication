@@ -38,4 +38,5 @@ def run_server(port):
                 conn.sendall(response.encode())
 
 
-run_server(PORT)
+if __name__ == "__main__":
+    run_server(PORT)

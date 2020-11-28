@@ -25,4 +25,5 @@ def hwserver(listen_address="tcp://*:5555"):
         socket.send(b"World")
 
 
-hwserver()
+if __name__ == "__main__":
+    hwserver()
